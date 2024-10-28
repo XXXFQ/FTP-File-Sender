@@ -1,0 +1,1 @@
+@py -m "ftp_file_sender" %*
