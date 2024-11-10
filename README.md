@@ -1,47 +1,42 @@
 # FTP File Sender
 
-This Python script is used to send files to a server using the FTP protocol. 
-It supports configurable options for server address, file path, port, timeout, and authentication.
+FTPプロトコルを使用してサーバーにファイルを送信するためのものです。 サーバーアドレス、ファイルパス、ポート、タイムアウト、認証のオプションを設定可能です。
 
-## Features
+## 機能
 
-- Connects to an FTP server using provided host address and port.
-- Sends a specified file to a target folder on the server.
-- Supports configurable timeout and authentication (username and password).
-- Command-line interface for ease of use.
+- 指定されたホストアドレスとポートを使用してFTPサーバーに接続します。
+- 指定したファイルをサーバーの指定フォルダに送信します。
+- タイムアウトや認証（ユーザー名とパスワード）を設定可能です。
+- コマンドラインインターフェースを備えており、簡単に使用できます。
 
-## Requirements
+## 使用方法
 
-- Python 3.x
-- `argparse`, `ftplib`, `pathlib`, and `logging` (standard Python libraries)
+以下の引数を使用してコマンドラインからスクリプトを実行できます。
 
-## Installation
+### 必須引数
+- `host`: FTPサーバーのアドレス（例: 192.168.1.3）
+- `path`: 送信したいファイルのパス（例: ./example_file.txt）
 
-No external packages are required as the script relies on Python's standard library.
+### オプション引数
+- `-f`, `--folder`: サーバー上でファイルを保存する宛先フォルダ（デフォルト: 現在のディレクトリ "./"）。
+- `-p`, `--port`: FTP接続のポート番号（デフォルト: 5000）。
+- `-t`, `--timeout`: 接続のタイムアウト時間（秒）（デフォルト: 30.0）。
+- `-u`, `--username`: FTPログイン用のユーザー名（デフォルト: None、匿名ログイン）。
+- `-pw`, `--password`: FTPログイン用のパスワード（デフォルト: None）。
 
-## Usage
-
-The script can be executed from the command line with the following arguments:
-
-### Required Arguments
-- `host`: The address of the FTP server (e.g., 192.168.1.3)
-- `path`: The path to the file you want to send (e.g., ./example_file.txt)
-
-### Optional Arguments
-- `-f`, `--folder`: The destination folder on the server where the file will be saved (default: current directory "./").
-- `-p`, `--port`: The port number for the FTP connection (default: 5000).
-- `-t`, `--timeout`: The timeout in seconds for the connection (default: 30.0).
-- `-u`, `--username`: Username for FTP login (default: None for anonymous login).
-- `-pw`, `--password`: Password for FTP login (default: None).
-
-### Example
+### 使用例
 
 ```bash
-python ftp_file_sender.py 192.168.1.3 ./example_file.txt -f /uploads -p 21 -t 15 -u myuser -pw mypassword
+ftp-file-sender 192.168.1.3 ./example_file.txt -f /uploads -p 21 -t 15 -u myuser -pw mypassword
 ```
 
-This example connects to the FTP server at `192.168.1.3` on port `21`, logs in using `myuser` and `mypassword`, and uploads `example_file.txt` to the `/uploads` directory on the server with a timeout of `15` seconds.
+この例では、ポート`21`を使用して`192.168.1.3`のFTPサーバーに接続し、`myuser`と`mypassword`を用いてログインします。
+そして、`example_file.txt`をサーバーの`/uploads`ディレクトリにタイムアウト`15`秒でアップロードします。
 
-## License
+## ライセンス
 
-This project is licensed under the MIT License.
+このプロジェクトはMITライセンスのもとで提供されています。
+
+## 著作権表示
+
+© 2024 ARM
