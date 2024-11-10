@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "ftp-file-sender"
+version = "0.1.0"
+description = ""
+authors = ["ARM0930 <72128692+XXXFQ@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.14"
+colorlog = "^6.9.0"
+
+[tool.poetry.group.dev.dependencies]
+pyinstaller = "^6.11.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
